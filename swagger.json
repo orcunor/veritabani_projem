@@ -1,0 +1,977 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Klorak API",
+    "license": {
+      "name": "150320037 Orçun Or ",
+      "url": ""
+    }
+  },
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/urun/{ID}": {
+      "get": {
+        "tags": ["Ürün"],
+        "summary": "Ürünü getir",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Ürün ID in Database",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/urun": {
+      "get": {
+        "tags": ["Ürün"],
+        "summary": "Bütün ürünleri getir",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Ürün"],
+        "summary": "Yeni ürün ekle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Ürün Detay",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UrunPostDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Ürün"],
+        "summary": "Ürün Güncelle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Ürün Detayı Gir",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UrunPutDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/urun/{ID}/{MODIFIED_BY}": {
+      "delete": {
+        "tags": ["Ürün"],
+        "summary": "Ürün Sil",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Ürün ID Veritabanı",
+            "type": "integer"
+          },
+          {
+            "name": "MODIFIED_BY",
+            "in": "path",
+            "required": true,
+            "description": "Modified By Code",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Satistemsilcisi/{ID}": {
+      "get": {
+        "tags": ["Satış Temsilcisi"],
+        "summary": "Satış Temsilcisini getir",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Satış Temsilcisi ID in Database",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Satistemsilcisi": {
+      "get": {
+        "tags": ["Satış Temsilcisi"],
+        "summary": "Bütün satış temsilcilerini getir",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Satış Temsilcisi"],
+        "summary": "Yeni satış temsilcisi ekle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Satış Temsilcisi Detay",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SatistemsilcisiPostDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Satış Temsilcisi"],
+        "summary": "Satış Temsilcisi Güncelle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Satış Temsilcisi Detayı Gir",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SatistemsilcisiPutDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Satistemsilcisi/{ID}/{MODIFIED_BY}": {
+      "delete": {
+        "tags": ["Satış Temsilcisi"],
+        "summary": "Satış Temsilcisi Sil",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Satış Temsilcisi ID Veritabanı",
+            "type": "integer"
+          },
+          {
+            "name": "MODIFIED_BY",
+            "in": "path",
+            "required": true,
+            "description": "Modified By Code",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Siparisdetay/{ID}": {
+      "get": {
+        "tags": ["Sipariş Detay"],
+        "summary": "Sipariş Detayını getir",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Satış Temsilcisi ID in Database",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Siparisdetay": {
+      "get": {
+        "tags": ["Sipariş Detay"],
+        "summary": "Bütün sipariş detaylarıını getir",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Sipariş Detay"],
+        "summary": "Yeni sipariş detay ekle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Sipariş Detay",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SiparisdetayPostDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Sipariş Detay"],
+        "summary": "Sipariş Detay Güncelle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Sipariş Detayı Gir",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SiparisdetayPutDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Siparisdetay/{ID}/{MODIFIED_BY}": {
+      "delete": {
+        "tags": ["Sipariş Detay"],
+        "summary": "Sipariş Detayı Sil",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Sipariş Detay ID Veritabanı",
+            "type": "integer"
+          },
+          {
+            "name": "MODIFIED_BY",
+            "in": "path",
+            "required": true,
+            "description": "Modified By Code",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Musteri/{ID}": {
+      "get": {
+        "tags": ["Müşteri"],
+        "summary": "Müşteri getir",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Müşteri ID in Database",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Musteri": {
+      "get": {
+        "tags": ["Müşteri"],
+        "summary": "Bütün müşterileri getir",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Müşteri"],
+        "summary": "Yeni müşteri ekle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Müşteri",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MusteriPostDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Müşteri"],
+        "summary": "Müşteri Güncelle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Müşteri Gir",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MusteriPutDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/Musteri/{ID}/{MODIFIED_BY}": {
+      "delete": {
+        "tags": ["Müşteri"],
+        "summary": "Müşteri Sil",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Müşteri ID Veritabanı",
+            "type": "integer"
+          },
+          {
+            "name": "MODIFIED_BY",
+            "in": "path",
+            "required": true,
+            "description": "Modified By Code",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/siparis/{ID}": {
+      "get": {
+        "tags": ["Sipariş"],
+        "summary": "Siparişi getir",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Sipariş ID in Database",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/siparis": {
+      "get": {
+        "tags": ["Sipariş"],
+        "summary": "Bütün siparişleri getir",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Sipariş"],
+        "summary": "Yeni sipariş ekle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Sipariş Detay",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SiparisPostDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Sipariş"],
+        "summary": "Sipariş Güncelle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Sipariş Detayı Gir",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SiparisPutDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/siparis/{ID}/{MODIFIED_BY}": {
+      "delete": {
+        "tags": ["Sipariş"],
+        "summary": "Sipariş Sil",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Sipariş ID Veritabanı",
+            "type": "integer"
+          },
+          {
+            "name": "MODIFIED_BY",
+            "in": "path",
+            "required": true,
+            "description": "Modified By Code",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/fatura/{ID}": {
+      "get": {
+        "tags": ["Fatura"],
+        "summary": "Faturayı getir",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Fatura ID in Database",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/fatura": {
+      "get": {
+        "tags": ["Fatura"],
+        "summary": "Bütün faturaları getir",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Fatura"],
+        "summary": "Yeni fatura ekle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Fatura Detay",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FaturaPostDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Fatura"],
+        "summary": "Fatura Güncelle",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "model",
+            "in": "body",
+            "description": "Fatura Detayı Gir",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/FaturaPutDto"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/fatura/{ID}/{MODIFIED_BY}": {
+      "delete": {
+        "tags": ["Fatura"],
+        "summary": "Fatura Sil",
+        "parameters": [
+          {
+            "name": "ID",
+            "in": "path",
+            "required": true,
+            "description": "Fatura ID Veritabanı",
+            "type": "integer"
+          },
+          {
+            "name": "MODIFIED_BY",
+            "in": "path",
+            "required": true,
+            "description": "Modified By Code",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UrunPostDto": {
+      "type": "object",
+      "properties": {
+        "ADI": {
+          "type": "string"
+        },
+        "BIRIM_FIYAT": {
+          "type": "integer"
+        },
+        "BARKOD_NO": {
+          "type": "integer"
+        },
+        "SatistemsilcisiID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "UrunPutDto": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "number"
+        },
+        "ADI": {
+          "type": "string"
+        },
+        "BIRIM_FIYAT": {
+          "type": "integer"
+        },
+        "BARKOD_NO": {
+          "type": "string"
+        },
+        "SatistemsilcisiID": {
+          "type": "string"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "SatistemsilcisiPostDto": {
+      "type": "object",
+      "properties": {
+        "ARAC_PLAKA_NO": {
+          "type": "string"
+        },
+        "SATIS_TEMSILCISI_ADI": {
+          "type": "string"
+        },
+        "UrunID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "SatistemsilcisiPutDto": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "number"
+        },
+        "ARAC_PLAKA_NO": {
+          "type": "string"
+        },
+        "SATIS_TEMSILCISI_ADI": {
+          "type": "string"
+        },
+        "UrunID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "SiparisdetayPostDto": {
+      "type": "object",
+      "properties": {
+        "MusteriID": {
+          "type": "integer"
+        },
+        "SatistemsilcisiID": {
+          "type": "integer"
+        },
+        "UrunID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "SiparisdetayPutDto": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "number"
+        },
+        "MusteriID": {
+          "type": "integer"
+        },
+        "SatistemsilcisiID": {
+          "type": "integer"
+        },
+        "UrunID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "MusteriPostDto": {
+      "type": "object",
+      "properties": {
+        "MUSTERI_ADI": {
+          "type": "string"
+        },
+        "ADRES": {
+          "type": "string"
+        },
+        "SatistemsilcisiID": {
+          "type": "integer"
+        },
+        "TELEFON_NO": {
+          "type": "string"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "MusteriPutDto": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "number"
+        },
+        "MUSTERI_ADI": {
+          "type": "string"
+        },
+        "ADRES": {
+          "type": "string"
+        },
+        "SatistemsilcisiID": {
+          "type": "integer"
+        },
+        "TELEFON_NO": {
+          "type": "string"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "SiparisPostDto": {
+      "type": "object",
+      "properties": {
+        "FATURA_TARIHI": {
+          "type": "date"
+        },
+        "MIKTAR": {
+          "type": "integer"
+        },
+        "URUN_TUTARI": {
+          "type": "integer"
+        },
+        "MusteriID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "SiparisPutDto": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "number"
+        },
+        "FATURA_TARIHI": {
+          "type": "date"
+        },
+        "MIKTAR": {
+          "type": "integer"
+        },
+        "URUN_TUTARI": {
+          "type": "integer"
+        },
+        "MusteriID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "FaturaPostDto": {
+      "type": "object",
+      "properties": {
+        "FATURA_TARIHI": {
+          "type": "date"
+        },
+        "FATURA_TUTARI": {
+          "type": "integer"
+        },
+        "URUN": {
+          "type": "string"
+        },
+        "MIKTAR": {
+          "type": "integer"
+        },
+        "MusteriID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+    "FaturaPutDto": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "number"
+        },
+        "FATURA_TARIHI": {
+          "type": "date"
+        },
+        "FATURA_TUTARI": {
+          "type": "integer"
+        },
+        "URUN": {
+          "type": "string"
+        },
+        "MIKTAR": {
+          "type": "integer"
+        },
+        "MusteriID": {
+          "type": "integer"
+        },
+        "CREATED_BY": {
+          "type": "string"
+        }
+      }
+    },
+
+    "Response": {
+      "type": "object",
+      "properties": {
+        "isSuccess": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "string"
+        },
+        "error": {
+          "type": "string"
+        },
+        "statusCode": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
